@@ -120,3 +120,56 @@ predictions_lm <- predict(diabetes_dataset_model_lm,
 ## 4. View the RMSE and the predicted values for the 12 observations ----
 print(diabetes_dataset_model_lm)
 print(predictions_lm)
+
+
+#perfoming 10 fold cross validation
+
+train_control <- trainControl(method = "cv", number = 10)
+
+diabetes_dateset_model_lm_cv <-
+  caret::train(diabetes ~ .,
+               data = diabetes_dataset_train,
+               trControl = train_control, na.action = na.omit,
+               method = "glm", metric = "Accuracy")
+
+
+predictions_lm_cv <- predict(diabetes_dateset_model_lm_cv, diabetes_dataset_test[, -9])
+
+
+print(diabetes_dateset_model_lm_cv)
+print(predictions_lm_cv)
+
+
+
+#performing Classification: SVM with Repeated k-fold Cross Validation
+
+train_control <- trainControl(method = "repeatedcv", number = 5, repeats = 3)
+
+
+diabetes_dateset_model_svm <-
+  caret::train(diabetes ~ ., data = diabetes_dataset_train,
+               trControl = train_control, na.action = na.omit,
+               method = "svmLinearWeights2", metric = "Accuracy")
+
+predictions_svm <- predict(diabetes_dateset_model_svm, diabetes_dataset_test)
+
+
+print(diabetes_dateset_model_svm)
+caret::confusionMatrix(predictions_svm, diabetes_dataset_test$diabetes)
+
+
+#training a Naive Bayes classifier based on an LOOCV
+
+train_control <- trainControl(method = "LOOCV")
+
+
+diabetes_dataset_model_nb_loocv <-
+  caret::train(diabetes ~ ., data = diabetes_dataset_train,
+               trControl = train_control, na.action = na.omit,
+               method = "naive_bayes", metric = "Accuracy")
+
+predictions_nb_loocv <-
+  predict(diabetes_dataset_model_nb_loocv, diabetes_dataset_test[, 1:14])
+
+print(diabetes_dataset_model_nb_loocv)
+caret::confusionMatrix(predictions_nb_loocv, diabetes_dataset_test$Churn)
