@@ -1,28 +1,26 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/DtB9Hj-A)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12342967&assignment_repo_type=AssignmentRepo)
-# BBT4206-R
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/DtB9Hj-A) [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12342967&assignment_repo_type=AssignmentRepo) \# BBT4206-R
 
 These are course files (instructional materials) for the **BBT4206: Business Intelligence II** course using **R**.
 
-| **Key**                                                               | Value                                                                                                                                                                              |
-|---------------|---------------------------------------------------------|
-| **Course Code**                                                       | BBT4206                                                                                                                                                                            |
-| **Course Name**                                                       | Business Intelligence II                                                                                                                                                           |
-| **URL**                                                               | <https://elearning.strathmore.edu/course/view.php?id=6599>                                                                                                                         |
-| **Semester Duration**                                                 | 21<sup>st</sup> August 2023 to 28<sup>th</sup> November 2023                                                                                                                       |
-| **Lecturer**                                                          | Allan Omondi                                                                                                                                                                       |
-| **Contact**                                                           | aomondi_at_strathmore_dot_edu                                                                                                                                                      |
-| **Recommended Citation (download [BibTex](RecommendedCitation.bib))** | Omondi, A. (2023). BBT4206-R-Lab5of15-ResamplingMethods [R]. https://github.com/course-files/BBT4206-R-Lab5of15-ResamplingMethods |
+| **Key**                                                               | Value                                                                                                                               |
+|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **Course Code**                                                       | BBT4206                                                                                                                             |
+| **Course Name**                                                       | Business Intelligence II                                                                                                            |
+| **URL**                                                               | <https://elearning.strathmore.edu/course/view.php?id=6599>                                                                          |
+| **Semester Duration**                                                 | 21<sup>st</sup> August 2023 to 28<sup>th</sup> November 2023                                                                        |
+| **Lecturer**                                                          | Allan Omondi                                                                                                                        |
+| **Contact**                                                           | aomondi_at_strathmore_dot_edu                                                                                                       |
+| **Recommended Citation (download [BibTex](RecommendedCitation.bib))** | Omondi, A. (2023). BBT4206-R-Lab5of15-ResamplingMethods [R]. <https://github.com/course-files/BBT4206-R-Lab5of15-ResamplingMethods> |
 
 It is based on the following 9 steps of **Knowledge Discovery in Databases (KDD)**:
 
-## Step 1: Problem Definition and Goal Setting
+## Step 1: Problem Definition and Goal Setting {#step-1-problem-definition-and-goal-setting}
 
 This involves an understanding of the problem, the requirements of the end-user for the solution to the problem, and the environment in which the KDD process will occur.
 
 -   [*BI Project: Section 1, 3, and 14*](https://docs.google.com/document/d/1Ay1VaAjd9JzQJ5JnkPHZLvtDRNAWrc5RYCPo1bvxgBU/edit?usp=sharing)
 
-## Step 2: Data Selection
+## Step 2: Data Selection {#step-2-data-selection}
 
 This involves discovering what data is accessible, selecting the significant data that is accessible, and then integrating all this data into one set (a dataset). It is extremely important to ensure that the data is collected ethically (informed consent), and that the data is not biased (the sample should represent the population). The entire KDD process may be unsuccessful if there are significant attributes/features missing in the dataset. This can be performed by the data engineer.
 
