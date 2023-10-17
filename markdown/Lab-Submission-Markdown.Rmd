@@ -1,0 +1,252 @@
+---
+title: "Business Intelligence Project"
+author: "<Specify your name here>"
+date: "<Specify the date when you submitted the lab>"
+output:
+  github_document: 
+    toc: yes
+    toc_depth: 4
+    fig_width: 6
+    fig_height: 4
+    df_print: default
+editor_options:
+  chunk_output_type: console
+---
+
+# Student Details
+
+|                                              |     |
+|----------------------------------------------|-----|
+| **Student ID Number**                        | ... |
+| **Student Name**                             | ... |
+| **BBIT 4.2 Group**                           | ... |
+| **BI Project Group Name/ID (if applicable)** | ... |
+
+# Setup Chunk
+
+```{r}
+#installing necessary packages
+
+if(require("caret")){
+  require("caret")
+}else{
+  install.packages("caret", dependencies = TRUE,
+                   repos= "https://cloud.r-project.org")
+}
+
+if(require("klaR")){
+  require("klaR")
+}else{
+  install.packages("klaR", dependencies = TRUE,
+                   repos = "https://cloud.r-prject.org")
+}
+
+## e1071 ----
+if (require("e1071")) {
+  require("e1071")
+} else {
+  install.packages("e1071", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## readr ----
+if (require("readr")) {
+  require("readr")
+} else {
+  install.packages("readr", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## LiblineaR ----
+if (require("LiblineaR")) {
+  require("LiblineaR")
+} else {
+  install.packages("LiblineaR", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## naivebayes ----
+if (require("naivebayes")) {
+  require("naivebayes")
+} else {
+  install.packages("naivebayes", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+
+```
+
+
+**Note:** the following KnitR options have been set as the global defaults: <BR> `knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE, collapse = FALSE, tidy = TRUE)`.
+
+More KnitR options are documented here <https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and here <https://yihui.org/knitr/options/>.
+
+```{r setup, include=FALSE}
+library(formatR)
+knitr::opts_chunk$set(
+  warning = FALSE,
+  collapse = FALSE
+)
+```
+
+# Understanding the Dataset (Exploratory Data Analysis (EDA))
+
+## Loading the Dataset
+```{r}
+if (require("mlbench")){
+  require("mlbench")
+} else {
+  install.packages("mlbench", dependencies= TRUE,
+                   repos= "https://cloud.r-project.org")
+}
+
+#getting/loading the Pima Indians Diabetes dataset from mlbench
+
+data("PimaIndiansDiabetes")
+```
+
+
+### Source:
+
+The dataset that was used can be downloaded here: *\<provide a link\>*
+
+### Reference:
+
+*\<Cite the dataset here using APA\>\
+Refer to the APA 7th edition manual for rules on how to cite datasets: <https://apastyle.apa.org/style-grammar-guidelines/references/examples/data-set-references>*
+
+```{r Dataset Loader}
+library(readr)
+
+# Provide the executable R code inside the various code chunks as guided by the lab work.
+```
+
+#splitting the dataset
+```{r}
+train_index <- createDataPartition(PimaIndiansDiabetes$diabetes,
+                                   p=0.80, list=FALSE)
+diabetes_dataset_train <- PimaIndiansDiabetes[train_index,]
+diabetes_dataset_test <- PimaIndiansDiabetes[-train_index,]
+```
+
+#performing naive bayes
+```{r}
+diabetes_dataset_nb_e1071 <-
+  e1071::naiveBayes(diabetes~ pregnant+ glucose+ pressure+
+                      triceps+ insulin+ mass+ pedigree+ age,
+                    data=diabetes_dataset_train)
+```
+
+
+#testing the model using the test dataset
+```{r}
+
+prediction_nb_e1071 <-
+  predict(diabetes_dataset_nb_e1071,
+          diabetes_dataset_test[, c("pregnant", "glucose",
+                                    "pressure","triceps","insulin", "mass",
+                                    "pedigree","age")
+            
+          ])
+
+print(prediction_nb_e1071)
+
+caret::confusionMatrix(prediction_nb_e1071,
+                       diabetes_dataset_test[, c("pregnant", "glucose",
+                                                 "pressure","triceps","insulin", "mass",
+                                                 "pedigree","age","diabetes")]$diabetes)
+```
+
+                                                 
+#visualizing the prediction
+```{r}
+plot(table(prediction_nb_e1071,
+           diabetes_dataset_test[, c("pregnant", "glucose",
+                                     "pressure","triceps","insulin", "mass",
+                                     "pedigree","age","diabetes")]$diabetes))
+```
+
+#bootstrapping train control
+```{r}
+train_control <- trainControl(method = "boot", number = 500)
+
+str(diabetes_dataset_test)
+
+
+diabetes_dataset_model_lm <- # nolint
+  caret::train(diabetes ~
+                 pregnant+ glucose+ pressure+
+                 triceps+ insulin+ mass+ pedigree+ age,
+               data = diabetes_dataset_train,
+               trControl = train_control,
+               na.action = na.omit, method = "glm", metric = "Accuracy")
+
+
+predictions_lm <- predict(diabetes_dataset_model_lm,
+                          diabetes_dataset_test[, 1:8])
+```
+
+##View the RMSE and the predicted values for the 12 observations ----
+
+```{r}
+print(diabetes_dataset_model_lm)
+print(predictions_lm)
+
+```
+#perfoming 10 fold cross validation
+```{r}
+
+train_control <- trainControl(method = "cv", number = 10)
+
+diabetes_dateset_model_lm_cv <-
+  caret::train(diabetes ~ .,
+               data = diabetes_dataset_train,
+               trControl = train_control, na.action = na.omit,
+               method = "glm", metric = "Accuracy")
+
+
+predictions_lm_cv <- predict(diabetes_dateset_model_lm_cv, diabetes_dataset_test[, -9])
+
+
+print(diabetes_dateset_model_lm_cv)
+print(predictions_lm_cv)
+
+```
+#performing Classification: SVM with Repeated k-fold Cross Validation
+```{r}
+
+train_control <- trainControl(method = "repeatedcv", number = 5, repeats = 3)
+
+
+diabetes_dateset_model_svm <-
+  caret::train(diabetes ~ ., data = diabetes_dataset_train,
+               trControl = train_control, na.action = na.omit,
+               method = "svmLinearWeights2", metric = "Accuracy")
+
+predictions_svm <- predict(diabetes_dateset_model_svm, diabetes_dataset_test)
+
+
+print(diabetes_dateset_model_svm)
+caret::confusionMatrix(predictions_svm, diabetes_dataset_test$diabetes)
+
+
+```
+#training a Naive Bayes classifier based on an LOOCV
+
+```{r}
+train_control <- trainControl(method = "LOOCV")
+
+
+diabetes_dataset_model_nb_loocv <-
+  caret::train(diabetes ~ ., data = diabetes_dataset_train,
+               trControl = train_control, na.action = na.omit,
+               method = "naive_bayes", metric = "Accuracy")
+
+predictions_nb_loocv <-
+  predict(diabetes_dataset_model_nb_loocv, diabetes_dataset_test[, 1:9])
+
+print(diabetes_dataset_model_nb_loocv)
+caret::confusionMatrix(predictions_nb_loocv, diabetes_dataset_test$diabetes)
+
+```
+
