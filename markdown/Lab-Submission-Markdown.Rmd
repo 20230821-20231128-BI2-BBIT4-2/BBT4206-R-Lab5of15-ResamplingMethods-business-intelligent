@@ -17,10 +17,10 @@ editor_options:
 
 |                                              |     |
 |----------------------------------------------|-----|
-| **Student ID Number**                        | ... |
-| **Student Name**                             | ... |
-| **BBIT 4.2 Group**                           | ... |
-| **BI Project Group Name/ID (if applicable)** | ... |
+| **Student ID Number**                        | 127559,134775, 135863, 136346,134141 |
+| **Student Name**                             | |
+| **BBIT 4.2 Group**                           |c|
+| **BI Project Group Name/ID (if applicable)** |Business Intelligent |
 
 # Setup Chunk
 

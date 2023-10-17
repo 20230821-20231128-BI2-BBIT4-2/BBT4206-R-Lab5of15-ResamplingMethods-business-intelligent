@@ -13,12 +13,12 @@ Business Intelligence Project
 
 # Student Details
 
-|                                              |     |
-|----------------------------------------------|-----|
-| **Student ID Number**                        | …   |
-| **Student Name**                             | …   |
-| **BBIT 4.2 Group**                           | …   |
-| **BI Project Group Name/ID (if applicable)** | …   |
+|                                              |                                      |
+|----------------------------------------------|--------------------------------------|
+| **Student ID Number**                        | 127559,134775, 135863, 136346,134141 |
+| **Student Name**                             |                                      |
+| **BBIT 4.2 Group**                           | c                                    |
+| **BI Project Group Name/ID (if applicable)** | Business Intelligent                 |
 
 # Setup Chunk
 
@@ -179,15 +179,15 @@ prediction_nb_e1071 <-
 print(prediction_nb_e1071)
 ```
 
-    ##   [1] neg pos pos pos pos pos pos pos pos pos neg neg neg neg pos neg neg pos
-    ##  [19] pos neg neg pos neg neg pos pos pos neg neg neg neg neg pos pos neg neg
-    ##  [37] neg pos neg neg pos neg pos pos neg neg neg neg pos neg neg neg neg neg
-    ##  [55] neg pos neg neg neg neg pos neg neg pos pos neg neg pos neg pos neg pos
-    ##  [73] neg neg neg pos pos pos neg neg neg neg neg neg neg neg neg neg neg neg
-    ##  [91] pos neg neg neg neg neg neg pos neg neg neg pos neg pos pos neg neg neg
-    ## [109] neg neg pos neg pos neg neg pos neg neg pos neg neg neg neg neg neg pos
-    ## [127] neg pos pos pos neg pos neg neg neg pos neg neg neg neg neg neg neg neg
-    ## [145] neg neg neg pos pos pos neg pos neg
+    ##   [1] neg pos pos pos pos neg pos neg pos neg neg neg neg pos neg neg neg neg
+    ##  [19] pos neg neg neg pos neg neg neg pos neg pos neg neg pos neg neg neg pos
+    ##  [37] pos pos neg neg neg neg pos neg neg neg neg neg neg neg pos neg pos neg
+    ##  [55] pos pos neg neg neg pos neg neg pos neg pos pos neg neg neg neg pos neg
+    ##  [73] neg pos pos neg pos neg pos neg neg neg neg neg neg neg neg pos neg neg
+    ##  [91] neg neg pos neg neg pos neg neg pos neg neg neg neg neg neg neg neg neg
+    ## [109] neg pos neg neg neg neg pos pos neg neg neg pos pos pos neg pos neg neg
+    ## [127] neg neg neg neg neg pos neg neg pos neg neg neg neg neg pos pos neg pos
+    ## [145] neg neg neg neg neg neg pos neg neg
     ## Levels: neg pos
 
 ``` r
@@ -201,28 +201,28 @@ caret::confusionMatrix(prediction_nb_e1071,
     ## 
     ##           Reference
     ## Prediction neg pos
-    ##        neg  86  15
-    ##        pos  14  38
-    ##                                           
-    ##                Accuracy : 0.8105          
-    ##                  95% CI : (0.7393, 0.8692)
-    ##     No Information Rate : 0.6536          
-    ##     P-Value [Acc > NIR] : 1.46e-05        
-    ##                                           
-    ##                   Kappa : 0.5796          
-    ##                                           
-    ##  Mcnemar's Test P-Value : 1               
-    ##                                           
-    ##             Sensitivity : 0.8600          
-    ##             Specificity : 0.7170          
-    ##          Pos Pred Value : 0.8515          
-    ##          Neg Pred Value : 0.7308          
-    ##              Prevalence : 0.6536          
-    ##          Detection Rate : 0.5621          
-    ##    Detection Prevalence : 0.6601          
-    ##       Balanced Accuracy : 0.7885          
-    ##                                           
-    ##        'Positive' Class : neg             
+    ##        neg  84  23
+    ##        pos  16  30
+    ##                                          
+    ##                Accuracy : 0.7451         
+    ##                  95% CI : (0.6684, 0.812)
+    ##     No Information Rate : 0.6536         
+    ##     P-Value [Acc > NIR] : 0.009661       
+    ##                                          
+    ##                   Kappa : 0.419          
+    ##                                          
+    ##  Mcnemar's Test P-Value : 0.336668       
+    ##                                          
+    ##             Sensitivity : 0.8400         
+    ##             Specificity : 0.5660         
+    ##          Pos Pred Value : 0.7850         
+    ##          Neg Pred Value : 0.6522         
+    ##              Prevalence : 0.6536         
+    ##          Detection Rate : 0.5490         
+    ##    Detection Prevalence : 0.6993         
+    ##       Balanced Accuracy : 0.7030         
+    ##                                          
+    ##        'Positive' Class : neg            
     ## 
 
 \#visualizing the prediction
@@ -245,15 +245,15 @@ str(diabetes_dataset_test)
 ```
 
     ## 'data.frame':    153 obs. of  9 variables:
-    ##  $ pregnant: num  5 10 1 5 11 7 4 7 7 0 ...
-    ##  $ glucose : num  116 115 189 166 143 147 111 159 187 146 ...
-    ##  $ pressure: num  74 0 60 72 94 76 72 64 68 82 ...
-    ##  $ triceps : num  0 0 23 19 33 0 47 0 39 0 ...
-    ##  $ insulin : num  0 0 846 175 146 0 207 0 304 0 ...
-    ##  $ mass    : num  25.6 35.3 30.1 25.8 36.6 39.4 37.1 27.4 37.7 40.5 ...
-    ##  $ pedigree: num  0.201 0.134 0.398 0.587 0.254 ...
-    ##  $ age     : num  30 29 59 51 51 43 56 40 41 44 ...
-    ##  $ diabetes: Factor w/ 2 levels "neg","pos": 1 1 2 2 2 2 2 1 2 1 ...
+    ##  $ pregnant: num  1 8 10 10 10 7 11 2 3 1 ...
+    ##  $ glucose : num  85 183 115 168 139 100 138 90 180 73 ...
+    ##  $ pressure: num  66 64 0 74 80 0 76 68 64 50 ...
+    ##  $ triceps : num  29 0 0 0 0 0 0 42 25 10 ...
+    ##  $ insulin : num  0 0 0 0 0 0 0 0 70 0 ...
+    ##  $ mass    : num  26.6 23.3 35.3 38 27.1 30 33.2 38.2 34 23 ...
+    ##  $ pedigree: num  0.351 0.672 0.134 0.537 1.441 ...
+    ##  $ age     : num  31 32 29 34 57 32 35 27 26 21 ...
+    ##  $ diabetes: Factor w/ 2 levels "neg","pos": 1 2 1 2 1 2 1 2 1 1 ...
 
 ``` r
 diabetes_dataset_model_lm <- # nolint
@@ -286,22 +286,22 @@ print(diabetes_dataset_model_lm)
     ## Summary of sample sizes: 615, 615, 615, 615, 615, 615, ... 
     ## Resampling results:
     ## 
-    ##   Accuracy   Kappa   
-    ##   0.7539606  0.428425
+    ##   Accuracy   Kappa    
+    ##   0.7654081  0.4616597
 
 ``` r
 print(predictions_lm)
 ```
 
-    ##   [1] neg pos neg pos pos pos pos pos pos pos neg neg neg neg pos neg neg pos
-    ##  [19] pos neg neg pos neg neg neg neg pos neg neg neg neg pos pos pos neg neg
-    ##  [37] neg pos neg neg pos pos pos pos neg neg neg neg pos neg neg neg neg pos
-    ##  [55] neg pos neg neg neg neg pos neg neg pos pos neg neg pos neg pos neg pos
-    ##  [73] neg neg neg pos pos pos neg neg pos neg neg neg neg neg neg neg neg neg
-    ##  [91] pos neg neg neg neg neg neg pos neg neg neg pos pos neg pos neg neg neg
-    ## [109] neg neg neg neg neg neg neg neg neg neg pos neg neg neg neg neg neg neg
-    ## [127] neg neg pos pos neg pos neg neg neg pos neg neg neg neg neg neg neg neg
-    ## [145] neg neg neg pos pos pos neg neg neg
+    ##   [1] neg pos pos pos pos neg pos neg pos neg pos neg neg pos neg neg neg neg
+    ##  [19] pos neg neg neg pos neg neg neg pos neg pos neg neg pos neg neg neg neg
+    ##  [37] neg pos neg neg neg neg pos neg neg neg neg neg neg neg pos neg pos neg
+    ##  [55] pos pos pos neg neg pos neg neg pos neg pos pos neg neg neg neg pos neg
+    ##  [73] neg pos pos neg pos neg neg neg neg neg pos neg neg neg neg pos neg neg
+    ##  [91] neg neg pos neg neg pos neg neg pos neg neg neg pos neg neg neg neg neg
+    ## [109] neg neg neg neg neg neg pos neg neg pos neg neg pos pos neg pos neg neg
+    ## [127] neg neg neg neg neg neg neg neg neg neg neg neg neg pos pos pos neg pos
+    ## [145] neg neg neg neg neg neg pos pos neg
     ## Levels: neg pos
 
 \#perfoming 10 fold cross validation
@@ -330,25 +330,25 @@ print(diabetes_dateset_model_lm_cv)
     ## 
     ## No pre-processing
     ## Resampling: Cross-Validated (10 fold) 
-    ## Summary of sample sizes: 554, 553, 553, 554, 553, 554, ... 
+    ## Summary of sample sizes: 553, 554, 554, 553, 554, 554, ... 
     ## Resampling results:
     ## 
     ##   Accuracy   Kappa    
-    ##   0.7608937  0.4390418
+    ##   0.7790323  0.4893262
 
 ``` r
 print(predictions_lm_cv)
 ```
 
-    ##   [1] neg pos neg pos pos pos pos pos pos pos neg neg neg neg pos neg neg pos
-    ##  [19] pos neg neg pos neg neg neg neg pos neg neg neg neg pos pos pos neg neg
-    ##  [37] neg pos neg neg pos pos pos pos neg neg neg neg pos neg neg neg neg pos
-    ##  [55] neg pos neg neg neg neg pos neg neg pos pos neg neg pos neg pos neg pos
-    ##  [73] neg neg neg pos pos pos neg neg pos neg neg neg neg neg neg neg neg neg
-    ##  [91] pos neg neg neg neg neg neg pos neg neg neg pos pos neg pos neg neg neg
-    ## [109] neg neg neg neg neg neg neg neg neg neg pos neg neg neg neg neg neg neg
-    ## [127] neg neg pos pos neg pos neg neg neg pos neg neg neg neg neg neg neg neg
-    ## [145] neg neg neg pos pos pos neg neg neg
+    ##   [1] neg pos pos pos pos neg pos neg pos neg pos neg neg pos neg neg neg neg
+    ##  [19] pos neg neg neg pos neg neg neg pos neg pos neg neg pos neg neg neg neg
+    ##  [37] neg pos neg neg neg neg pos neg neg neg neg neg neg neg pos neg pos neg
+    ##  [55] pos pos pos neg neg pos neg neg pos neg pos pos neg neg neg neg pos neg
+    ##  [73] neg pos pos neg pos neg neg neg neg neg pos neg neg neg neg pos neg neg
+    ##  [91] neg neg pos neg neg pos neg neg pos neg neg neg pos neg neg neg neg neg
+    ## [109] neg neg neg neg neg neg pos neg neg pos neg neg pos pos neg pos neg neg
+    ## [127] neg neg neg neg neg neg neg neg neg neg neg neg neg pos pos pos neg pos
+    ## [145] neg neg neg neg neg neg pos pos neg
     ## Levels: neg pos
 
 \#performing Classification: SVM with Repeated k-fold Cross Validation
@@ -380,27 +380,27 @@ print(diabetes_dateset_model_svm)
     ## Resampling results across tuning parameters:
     ## 
     ##   cost  Loss  weight  Accuracy   Kappa     
-    ##   0.25  L1    1       0.5631436  0.07702483
-    ##   0.25  L1    2       0.6357724  0.12204649
-    ##   0.25  L1    3       0.5924119  0.11646916
-    ##   0.25  L2    1       0.6970190  0.25914575
-    ##   0.25  L2    2       0.7252033  0.42652141
-    ##   0.25  L2    3       0.4677507  0.10082632
-    ##   0.50  L1    1       0.6000000  0.10666097
-    ##   0.50  L1    2       0.6205962  0.10334025
-    ##   0.50  L1    3       0.6086721  0.10454155
-    ##   0.50  L2    1       0.7127371  0.30063852
-    ##   0.50  L2    2       0.7230352  0.42389928
-    ##   0.50  L2    3       0.4677507  0.10082632
-    ##   1.00  L1    1       0.6146341  0.08685443
-    ##   1.00  L1    2       0.5945799  0.11941516
-    ##   1.00  L1    3       0.6433604  0.09246672
-    ##   1.00  L2    1       0.7062331  0.28688758
-    ##   1.00  L2    2       0.7284553  0.43075985
-    ##   1.00  L2    3       0.4682927  0.10150575
+    ##   0.25  L1    1       0.6341463  0.08218203
+    ##   0.25  L1    2       0.6368564  0.14898781
+    ##   0.25  L1    3       0.6617886  0.12923500
+    ##   0.25  L2    1       0.7306233  0.36275257
+    ##   0.25  L2    2       0.7121951  0.41296630
+    ##   0.25  L2    3       0.5208672  0.16602039
+    ##   0.50  L1    1       0.6520325  0.16735094
+    ##   0.50  L1    2       0.6124661  0.11170918
+    ##   0.50  L1    3       0.6298103  0.13521426
+    ##   0.50  L2    1       0.7376694  0.38009233
+    ##   0.50  L2    2       0.7181572  0.42343385
+    ##   0.50  L2    3       0.5230352  0.16874986
+    ##   1.00  L1    1       0.6455285  0.12543210
+    ##   1.00  L1    2       0.6520325  0.13898705
+    ##   1.00  L1    3       0.6428184  0.09130078
+    ##   1.00  L2    1       0.7322493  0.36331607
+    ##   1.00  L2    2       0.6970190  0.38162321
+    ##   1.00  L2    3       0.5208672  0.16602039
     ## 
     ## Accuracy was used to select the optimal model using the largest value.
-    ## The final values used for the model were cost = 1, Loss = L2 and weight = 2.
+    ## The final values used for the model were cost = 0.5, Loss = L2 and weight = 1.
 
 ``` r
 caret::confusionMatrix(predictions_svm, diabetes_dataset_test$diabetes)
@@ -410,26 +410,26 @@ caret::confusionMatrix(predictions_svm, diabetes_dataset_test$diabetes)
     ## 
     ##           Reference
     ## Prediction neg pos
-    ##        neg  76   6
-    ##        pos  24  47
+    ##        neg  83  36
+    ##        pos  17  17
     ##                                           
-    ##                Accuracy : 0.8039          
-    ##                  95% CI : (0.7321, 0.8636)
+    ##                Accuracy : 0.6536          
+    ##                  95% CI : (0.5725, 0.7286)
     ##     No Information Rate : 0.6536          
-    ##     P-Value [Acc > NIR] : 3.3e-05         
+    ##     P-Value [Acc > NIR] : 0.53727         
     ##                                           
-    ##                   Kappa : 0.599           
+    ##                   Kappa : 0.1646          
     ##                                           
-    ##  Mcnemar's Test P-Value : 0.001911        
+    ##  Mcnemar's Test P-Value : 0.01342         
     ##                                           
-    ##             Sensitivity : 0.7600          
-    ##             Specificity : 0.8868          
-    ##          Pos Pred Value : 0.9268          
-    ##          Neg Pred Value : 0.6620          
+    ##             Sensitivity : 0.8300          
+    ##             Specificity : 0.3208          
+    ##          Pos Pred Value : 0.6975          
+    ##          Neg Pred Value : 0.5000          
     ##              Prevalence : 0.6536          
-    ##          Detection Rate : 0.4967          
-    ##    Detection Prevalence : 0.5359          
-    ##       Balanced Accuracy : 0.8234          
+    ##          Detection Rate : 0.5425          
+    ##    Detection Prevalence : 0.7778          
+    ##       Balanced Accuracy : 0.5754          
     ##                                           
     ##        'Positive' Class : neg             
     ## 
@@ -463,14 +463,14 @@ print(diabetes_dataset_model_nb_loocv)
     ## Resampling results across tuning parameters:
     ## 
     ##   usekernel  Accuracy   Kappa    
-    ##   FALSE      0.7463415  0.4261619
-    ##    TRUE      0.7479675  0.4266683
+    ##   FALSE      0.7577236  0.4561237
+    ##    TRUE      0.7544715  0.4414639
     ## 
     ## Tuning parameter 'laplace' was held constant at a value of 0
     ## Tuning
     ##  parameter 'adjust' was held constant at a value of 1
     ## Accuracy was used to select the optimal model using the largest value.
-    ## The final values used for the model were laplace = 0, usekernel = TRUE
+    ## The final values used for the model were laplace = 0, usekernel = FALSE
     ##  and adjust = 1.
 
 ``` r
@@ -481,26 +481,26 @@ caret::confusionMatrix(predictions_nb_loocv, diabetes_dataset_test$diabetes)
     ## 
     ##           Reference
     ## Prediction neg pos
-    ##        neg  88  17
-    ##        pos  12  36
-    ##                                           
-    ##                Accuracy : 0.8105          
-    ##                  95% CI : (0.7393, 0.8692)
-    ##     No Information Rate : 0.6536          
-    ##     P-Value [Acc > NIR] : 1.46e-05        
-    ##                                           
-    ##                   Kappa : 0.5719          
-    ##                                           
-    ##  Mcnemar's Test P-Value : 0.4576          
-    ##                                           
-    ##             Sensitivity : 0.8800          
-    ##             Specificity : 0.6792          
-    ##          Pos Pred Value : 0.8381          
-    ##          Neg Pred Value : 0.7500          
-    ##              Prevalence : 0.6536          
-    ##          Detection Rate : 0.5752          
-    ##    Detection Prevalence : 0.6863          
-    ##       Balanced Accuracy : 0.7796          
-    ##                                           
-    ##        'Positive' Class : neg             
+    ##        neg  84  23
+    ##        pos  16  30
+    ##                                          
+    ##                Accuracy : 0.7451         
+    ##                  95% CI : (0.6684, 0.812)
+    ##     No Information Rate : 0.6536         
+    ##     P-Value [Acc > NIR] : 0.009661       
+    ##                                          
+    ##                   Kappa : 0.419          
+    ##                                          
+    ##  Mcnemar's Test P-Value : 0.336668       
+    ##                                          
+    ##             Sensitivity : 0.8400         
+    ##             Specificity : 0.5660         
+    ##          Pos Pred Value : 0.7850         
+    ##          Neg Pred Value : 0.6522         
+    ##              Prevalence : 0.6536         
+    ##          Detection Rate : 0.5490         
+    ##    Detection Prevalence : 0.6993         
+    ##       Balanced Accuracy : 0.7030         
+    ##                                          
+    ##        'Positive' Class : neg            
     ## 
