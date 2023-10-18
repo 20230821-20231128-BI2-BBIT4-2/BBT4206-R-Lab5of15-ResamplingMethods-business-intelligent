@@ -14,14 +14,33 @@ editor_options:
 ---
 
 # Student Details
+# Student Details
 
-|                                              |     |
-|----------------------------------------------|-----|
-| **Student ID Number**                        | 127559,134775, 135863, 136346,134141 |
-| **Student Name**                             | |
-| **BBIT 4.2 Group**                           |c|
-| **BI Project Group Name/ID (if applicable)** |Business Intelligent |
-
++----------------------------------------------+----------------------+
+| *Student ID Number*                        | 136346               |
+|                                              |                      |
+|                                              | 127559               |
+|                                              |                      |
+|                                              | 134775               |
+|                                              |                      |
+|                                              | 135863               |
+|                                              |                      |
+|                                              | 134141               |
++----------------------------------------------+----------------------+
+| *Student Name*                             | Ngumi Joshua         |
+|                                              |                      |
+|                                              | Joseph Watunu        |
+|                                              |                      |
+|                                              | Hakeem Alavi         |
+|                                              |                      |
+|                                              | Muema Ian            |
+|                                              |                      |
+|                                              | Aicha Mbongo         |
++----------------------------------------------+----------------------+
+| *BBIT 4.2 Group*                           | C                    |
++----------------------------------------------+----------------------+
+| *BI Project Group Name/ID (if applicable)* | Business Intelligent |
++----------------------------------------------+----------------------+
 # Setup Chunk
 
 ```{r}
